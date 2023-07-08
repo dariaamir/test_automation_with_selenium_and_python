@@ -1,3 +1,5 @@
+import random
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
@@ -26,3 +28,13 @@ def browser(request):
     yield browser
     print("\nquit browser..")
     browser.quit()
+
+
+@pytest.fixture(scope="function")
+def email():
+    return ''.join(random.choice('0123456789ABCDEF') for i in range(12)) + "@fakemail.org"
+
+
+@pytest.fixture(scope="function")
+def password():
+    return ''.join(random.choice('0123456789ABCDEF') for i in range(16))

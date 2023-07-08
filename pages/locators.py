@@ -5,11 +5,16 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BASKET_LINK = (By.PARTIAL_LINK_TEXT, "basket")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
 class LoginPageLocators ():
     LOGIN_FORM = (By.ID, "login_form")
     REGISTER_FORM = (By.ID, "register_form")
+    REGISTER_FORM_EMAIL_INPUT = (By.CSS_SELECTOR, "#register_form input[name=registration-email]")
+    REGISTER_FORM_PASSWORD_INPUT = (By.CSS_SELECTOR, "#register_form input[name=registration-password1")
+    REGISTER_FORM_CONFIRM_PASSWORD_INPUT = (By.CSS_SELECTOR, "#register_form input[name=registration-password2]")
+    REGISTER_BUTTON = (By.CSS_SELECTOR, "button[name=registration_submit]")
 
 
 class ProductPageLocators ():
