@@ -46,9 +46,17 @@ class ProductPage(BasePage):
             f"Product name is not present in confirmation message. " \
             f"Actual: {confirmation_message_1_text}, expected {product_name}"
 
-    def procuct_price_in_confirmation_message_should_be_correct(self):
+    def product_price_in_confirmation_message_should_be_correct(self):
         product_price = self.get_product_price()
         confirmation_message_3_text = self.get_confirmation_message_3_text()
         assert product_price in confirmation_message_3_text, \
             f"Product price is not present in confirmation message. " \
             f"Actual: {confirmation_message_3_text}, expected {product_price}"
+
+    def success_message_should_not_be_present(self):
+        assert self.is_not_element_present(*ProductPageLocators.CONFIRMATION_MESSAGES), \
+            "When adding product to basket, confirmation message is displayed"
+
+    def success_message_should_disappear(self):
+        assert self.is_disappeared(*ProductPageLocators.CONFIRMATION_MESSAGES), \
+            "When adding product to basket, confirmation message does not dissapear"
